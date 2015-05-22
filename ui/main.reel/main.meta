@@ -1,0 +1,52 @@
+{
+  "blueprint_component_reference": {
+    "prototype": "montage/core/meta/blueprint-reference",
+    "properties": {
+      "valueReference": {
+        "blueprintName": "Component",
+        "blueprintModule": {
+          "%": "montage/ui/component.meta"
+        }
+      }
+    }
+  },
+  "blueprint_unnamed_foo": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "foo",
+      "blueprint": {"@": "root"},
+      "cardinality": -1,
+      "valueType": "number",
+      "collectionValueType": "set"
+    }
+  },
+  "blueprint_unnamed_action": {
+    "prototype": "montage/core/meta/event-blueprint",
+    "properties": {
+      "name": "action",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "root": {
+    "prototype": "montage/core/meta/module-blueprint",
+    "properties": {
+      "name": null,
+      "parent": {"@": "blueprint_component_reference"},
+      "propertyBlueprints": [
+        {"@": "blueprint_unnamed_foo"}
+      ],
+      "propertyBlueprintGroups": {
+        "Main": [
+          {"@": "blueprint_unnamed_foo"}
+        ]
+      },
+      "eventBlueprints": [
+        {"@": "blueprint_unnamed_action"}
+      ],
+      "module": {
+        "%": "ui/main.reel"
+      },
+      "exportName": "Main"
+    }
+  }
+}
